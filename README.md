@@ -7,7 +7,7 @@ This is a simple API that generates an IP filter/blocklist in eMule format from 
 1. Ensure you have Go installed on your system.
 2. Clone the repository or copy the provided code into a file.
 3. Navigate to the directory containing the Go file.
-4. Run the program by executing `go run main.go` in your terminal, or build a binary with `go build main.go`.
+4. Run the program by executing `go run .` in your terminal, or build a binary with `go build -o emule-to-asn`.
 5. Access the `/generate` endpoint with the `asn` parameter set to the desired ASN (e.g., `http://localhost:8080/generate?asn=AS1234`).
 
 ## Cache
