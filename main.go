@@ -59,11 +59,10 @@ func generateHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Failed to write to cache:", err)
 	}
 
-	fmt.Println("Generated and served blocklist for ASN", asn)
+	fmt.Println("Generated and served blocklist for", asn)
 }
 
 func fetchIPs(asn string) ([]string, error) {
-	// fmt.Println("Fetching IPs for ASN", asn)
 	conn, err := net.Dial("tcp", "whois.radb.net:43")
 	if err != nil {
 		return nil, err
@@ -71,7 +70,6 @@ func fetchIPs(asn string) ([]string, error) {
 	defer conn.Close()
 
 	query := "-i origin " + asn + "\r\n"
-	// fmt.Println("Sending WHOIS query:", query)
 	_, err = conn.Write([]byte(query))
 	if err != nil {
 		return nil, err
@@ -86,8 +84,6 @@ func fetchIPs(asn string) ([]string, error) {
 		}
 		response.Write(buf[:n])
 	}
-
-	// fmt.Println("Received WHOIS response:", response.String())
 
 	lines := strings.Split(response.String(), "\n")
 	var ips []string
