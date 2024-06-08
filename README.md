@@ -2,6 +2,8 @@
 
 This is a simple API that generates an IP filter/blocklist in eMule format from an Autonomous System Number (ASN) for use with torrent clients, etc. It has caching but never invalidates it. It does not handle ratelimits or errors, will just generate empty list.
 
+Note: This does not grab all IP addresses associated with the ASN.
+
 ## Usage
 
 1. Ensure you have Go installed on your system.
